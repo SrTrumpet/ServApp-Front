@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ForgotPass from './ForgotPass';
 import { Link } from 'react-router-dom';
+import styleLogin from '../styles/styleLogin.css'
 
 function Login(){
 
@@ -12,26 +13,26 @@ function Login(){
         console.log('Email:', email);
         console.log('Password:', pass);
         // Aquí puedes añadir la lógica para autenticar al usuario
-      };
+        };
 
 
     return (
         <div>
-          <h2>Iniciar Sesión</h2>
-          <form onSubmit={handleSubmit}>
+            <h2>Iniciar Sesión</h2>
+            <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email">Email:</label>
-              <input
+                <label htmlFor="email">Email:</label>
+                <input
                 type="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
+                />
             </div>
             <div>
-              <label htmlFor="password">Contraseña:</label>
-              <input
+                <label htmlFor="password">Contraseña:</label>
+                <input
                 type="password"
                 id="password"
                 value={pass}
