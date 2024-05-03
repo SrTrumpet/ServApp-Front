@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import ForgotPass from './ForgotPass';
 import { Link } from 'react-router-dom';
-import styleLogin from '../styles/styleLogin.css'
 
 function Login(){
 
@@ -12,14 +10,16 @@ function Login(){
         event.preventDefault();
         console.log('Email:', email);
         console.log('Password:', pass);
-        // Aquí puedes añadir la lógica para autenticar al usuario
         };
 
 
     return (
         <div>
+
             <h2>Iniciar Sesión</h2>
             <form onSubmit={handleSubmit}>
+            
+
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
@@ -30,6 +30,8 @@ function Login(){
                 required
                 />
             </div>
+
+
             <div>
                 <label htmlFor="password">Contraseña:</label>
                 <input
@@ -41,13 +43,18 @@ function Login(){
             />
             </div>
 
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+
+
             <div>
-                <p>Olvide la contraseña.<Link to={"./ForgotPass"}> Recuperar</Link> </p>
+                <Link to={"/registrarse"}>Registrarse</Link>
             </div>
 
+            <div>
+                <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
+            </div>
 
-            <button type="submit">Iniciar Sesión</button>
-            </form>
         </div>
         );
 }
