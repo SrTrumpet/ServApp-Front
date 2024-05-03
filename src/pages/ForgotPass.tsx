@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
 
 function ForgotPass(){
 
@@ -23,7 +24,7 @@ function ForgotPass(){
                     />
 
                     <div>
-                        <button type="submit">Recuperar Contraseña</button>
+                        <Button type="submit" variant="text">Recuperar Contraseña</Button>
                     </div>
                 
                 </form>

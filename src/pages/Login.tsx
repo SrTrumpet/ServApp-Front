@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function Login(){
 
@@ -21,7 +22,7 @@ function Login(){
             
 
             <div>
-                <label htmlFor="email">Email:</label>
+                <p>Email</p>
                 <input
                 type="email"
                 id="email"
@@ -33,7 +34,7 @@ function Login(){
 
 
             <div>
-                <label htmlFor="password">Contraseña:</label>
+                <p>Contraseña</p>
                 <input
                 type="password"
                 id="password"
@@ -43,7 +44,7 @@ function Login(){
             />
             </div>
 
-                <button type="submit">Iniciar Sesión</button>
+                <Button type="submit" variant="outlined">Iniciar Sesion</Button>
             </form>
 
 
@@ -53,6 +54,10 @@ function Login(){
 
             <div>
                 <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
+            </div>
+
+            <div>
+                
             </div>
 
         </div>

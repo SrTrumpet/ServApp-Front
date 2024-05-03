@@ -1,6 +1,6 @@
 
-
 import React ,{useState} from "react";
+import Button from '@mui/material/Button';
 
 function Register() {
 
@@ -75,7 +75,7 @@ function Register() {
                     </div>
 
                     <div>
-                        <button type="submit">Registrarse</button>
+                        <Button type= "submit" variant="outlined">Registrarse</Button>
                     </div>
 
                 </form>
