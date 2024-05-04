@@ -46,21 +46,16 @@ const Login = () =>{
                 required
             />
             </div>
-
                 <Button type="submit" variant="outlined">Iniciar Sesion</Button>
             </form>
 
 
             <div>
-                <Link to={"/registrarse"}>Registrarse</Link>
+                <p><Link to={"/registrarse"}>Registrarse</Link></p>
             </div>
 
             <div>
                 <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
-            </div>
-
-            <div>
-                
             </div>
 
         </div>
