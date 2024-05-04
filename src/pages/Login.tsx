@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import ForgotPass from './ForgotPass';
 import { Link } from 'react-router-dom';
+import styleLogin from '../styles/styleLogin.css'
 import Button from '@mui/material/Button';
-import { useAuth } from "../auth/AuthContext";
 
-const Login = () =>{
-
-    const { login } = useAuth();
+function Login(){
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -14,18 +13,16 @@ const Login = () =>{
         event.preventDefault();
         console.log('Email:', email);
         console.log('Password:', pass);
-        login('email', 'password');
+        // Aquí puedes añadir la lógica para autenticar al usuario
         };
-    
+
+
     return (
-        <div>
-
-            <h2>Iniciar Sesión</h2>
+        <div className='bg-secondary min-h-screen'>
+            <h1 className='text-3xl font-bold underline'>Iniciar Sesión</h1>
             <form onSubmit={handleSubmit}>
-            
-
             <div>
-                <p>Email</p>
+                <label htmlFor="email">Email:</label>
                 <input
                 type="email"
                 id="email"
@@ -34,10 +31,8 @@ const Login = () =>{
                 required
                 />
             </div>
-
-
             <div>
-                <p>Contraseña</p>
+                <label htmlFor="password">Contraseña:</label>
                 <input
                 type="password"
                 id="password"
@@ -47,22 +42,14 @@ const Login = () =>{
             />
             </div>
 
-                <Button type="submit" variant="outlined">Iniciar Sesion</Button>
+            <div>
+                <p>Olvide la contraseña.<Link to={"./ForgotPass"}> Recuperar</Link> </p>
+            </div>
+
+
+            <button type="submit">Iniciar Sesión</button>
             </form>
-
-
-            <div>
-                <Link to={"/registrarse"}>Registrarse</Link>
-            </div>
-
-            <div>
-                <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
-            </div>
-
-            <div>
-                
-            </div>
-
+            <Button></Button>
         </div>
         );
 }
