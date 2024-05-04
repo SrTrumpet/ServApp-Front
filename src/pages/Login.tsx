@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ForgotPass from './ForgotPass';
+
 import { Link } from 'react-router-dom';
-import styleLogin from '../styles/styleLogin.css'
+
 import Button from '@mui/material/Button';
 
 function Login(){
@@ -43,7 +43,7 @@ function Login(){
             </div>
 
             <div>
-                <p>Olvide la contraseña.<Link to={"./ForgotPass"}> Recuperar</Link> </p>
+                <p>Olvide la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
             </div>
 
 
