@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useAuth } from "../auth/AuthContext";
 
+
+
 const Login = () =>{
 
     const { login } = useAuth();
@@ -14,6 +16,7 @@ const Login = () =>{
         event.preventDefault();
         console.log('Email:', email);
         console.log('Password:', pass);
+
         login('email', 'password');
         };
     

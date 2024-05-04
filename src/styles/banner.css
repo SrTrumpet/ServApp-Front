@@ -1,0 +1,22 @@
+.banner {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos con espacio igual entre ellos */
+    align-items: center; /* Centra los elementos verticalmente en el contenedor */
+    padding: 10px; /* Espacio alrededor del contenido dentro del contenedor */
+    background: #FFE79B;
+    }
+
+.elemento {
+    /* Estilos adicionales para los divs internos si es necesario */
+    padding: 20px; /* Espacio dentro de cada div interno */
+    border: 1px solid #ccc; /* Borde para visualizar los divs internos */
+    }
+
+.elemento .h2{
+    font-family: Inter;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 87.14px;
+    text-align: left;
+
+}

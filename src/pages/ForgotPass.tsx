@@ -24,7 +24,7 @@ function ForgotPass(){
                     />
 
                     <div>
-                        <Button type="submit" variant="text">Recuperar Contraseña</Button>
+                        <Button type="submit" variant="outlined">Recuperar Contraseña</Button>
                     </div>
                 
                 </form>

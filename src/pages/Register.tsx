@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 function Register() {
 
     const [nombre , setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [passVerifi, setPassVerifi] = useState('');
@@ -19,16 +18,19 @@ function Register() {
 
     
     return(
-
+        
         <div>
+
             
             <div>
+
+                <h2>Registremos tu cuenta</h2>
 
                 <form onSubmit={handleSubmit}>
                     
 
                     <div>
-                        <p>Nombre</p>
+                        <p>Nombre y Apellidos</p>
                         <input
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
@@ -36,14 +38,6 @@ function Register() {
                         />
                     </div>
 
-                    <div>
-                        <p>Apellidos</p>
-                        <input
-                        value={apellido}
-                        onChange={(e) => setApellido(e.target.value)}
-                        required
-                        />
-                    </div>
                     
                     <div>
                         <p>Email</p>
