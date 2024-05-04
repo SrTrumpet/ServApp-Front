@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
 import { Link } from 'react-router-dom';
-
 import Button from '@mui/material/Button';
+import { useAuth } from "../auth/AuthContext";
 
-function Login(){
+const Login = () =>{
+
+    const { login } = useAuth();
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -13,16 +14,18 @@ function Login(){
         event.preventDefault();
         console.log('Email:', email);
         console.log('Password:', pass);
-        // Aquí puedes añadir la lógica para autenticar al usuario
+        login('email', 'password');
         };
-
-
+    
     return (
-        <div className='bg-secondary min-h-screen'>
-            <h1 className='text-3xl font-bold underline'>Iniciar Sesión</h1>
+        <div>
+
+            <h2>Iniciar Sesión</h2>
             <form onSubmit={handleSubmit}>
+            
+
             <div>
-                <label htmlFor="email">Email:</label>
+                <p>Email</p>
                 <input
                 type="email"
                 id="email"
@@ -31,8 +34,10 @@ function Login(){
                 required
                 />
             </div>
+
+
             <div>
-                <label htmlFor="password">Contraseña:</label>
+                <p>Contraseña</p>
                 <input
                 type="password"
                 id="password"
@@ -42,14 +47,22 @@ function Login(){
             />
             </div>
 
+                <Button type="submit" variant="outlined">Iniciar Sesion</Button>
+            </form>
+
+
             <div>
-                <p>Olvide la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
+                <Link to={"/registrarse"}>Registrarse</Link>
             </div>
 
+            <div>
+                <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
+            </div>
 
-            <button type="submit">Iniciar Sesión</button>
-            </form>
-            <Button></Button>
+            <div>
+                
+            </div>
+
         </div>
         );
 }

@@ -12,17 +12,18 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 
   <React.StrictMode>
+    <AuthProvider>
     <Router>
       <Routes>
-        <AuthProvider>
+        
 
         <Route path="/" element={<Login />}/>
         <Route path="/olvido-de-contrasenna" element={<ForgotPass/>} />
         <Route path='/registrarse' element = { <Register/>} />
 
-        </AuthProvider>
+        
       </Routes>
     </Router>
-    
+    </AuthProvider>
   </React.StrictMode>,
 )
