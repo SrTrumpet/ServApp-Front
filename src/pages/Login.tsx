@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { useAuth } from "../auth/AuthContext";
 
-function Login(){
+const Login = () =>{
+
+    const { login } = useAuth();
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -11,9 +14,9 @@ function Login(){
         event.preventDefault();
         console.log('Email:', email);
         console.log('Password:', pass);
+        login('email', 'password');
         };
-
-
+    
     return (
         <div>
 
