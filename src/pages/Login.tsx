@@ -23,7 +23,8 @@ const Login = () =>{
     return (
         <div>
 
-            <h2>Iniciar Sesión</h2>
+            <h2 className='text-3xl font-bold '>Iniciar Sesión</h2>
+            
             <form onSubmit={handleSubmit}>
             
 
