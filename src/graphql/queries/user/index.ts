@@ -1,11 +1,13 @@
 import { gql } from "@apollo/client";
 
+
+//Get user como usuario de ejemplo
 export const GET_USERS = gql`
     query GetUsers {
-        getUsers {
-            id
+        user(email: "elias.manque.o@gmail.com"){
             name
-    }
+            password
+        }
 }
 `;
 
@@ -15,5 +17,11 @@ export const INICIO_SESION = gql`
             email
             pass
         }
+    }
+`;
+
+export const Mensaje = gql`
+    query InicioSesion {
+        mensaje
     }
 `;
