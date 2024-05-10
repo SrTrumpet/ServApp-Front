@@ -28,48 +28,40 @@ const Login = () =>{
     };
     
     return (
-        <div>
-
-            <h2 className='text-3xl font-bold '>Iniciar Sesión</h2>
-            
-            <form onSubmit={handleSubmit}>
-            
-
-            <div>
-                <p>Email</p>
-                <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                />
+        <body>
+            <h1 className="bg-orange-200 text-center text-5xl font-bold">
+                servicioAltoke
+            </h1>
+            <div className='flex justify-center items-center h-screen bg-purple-900'>
+                <div className="w=96 p-6 shadow-lg bg-indigo-950 rounded-xl flex flex-col gap-4 justify-center">
+                    <h1 className="text-3xl block text-white text-center underline font-semibold">Login</h1>
+                    <form onSubmit={handleSubmit}>
+                    <div className="items-center">
+                        <h1 className="text-white">Email:</h1>
+                        <label htmlFor="email"></label>
+                        <input className="rounded-xl border w-full text-base px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Ingresa tu Correo"
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required/>
+                        <h1 className="text-white">Contraseña:</h1>
+                        <label htmlFor="password"></label>
+                        <input className="rounded-xl border w-full text-base px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Ingresa tu Contreña"
+                        type="password"
+                        id="password"
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                        required/>
+                        <p className="text-white">Olvide la contraseña.
+                            <Link className='text-purple-900'to={"./ForgotPass"}> Recuperar</Link> </p>
+                        <button type="submit" className="bg-purple-900 rounded-xl text-2xl 
+                        text-white py-2 hover:scale-105 duration-300 w-full">Inciar Sesion</button>
+                    </div>
+                    </form>
+                </div>
             </div>
-
-
-            <div>
-                <p>Contraseña</p>
-                <input
-                type="password"
-                id="password"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-                required
-            />
-            </div>
-                <Button type="submit" variant="outlined">Iniciar Sesion</Button>
-            </form>
-
-
-            <div>
-                <p><Link to={"/registrarse"}>Registrarse</Link></p>
-            </div>
-
-            <div>
-                <p>Olvidé la contraseña.<Link to={"/olvido-de-contrasenna"}> Recuperar</Link> </p>
-            </div>
-
-        </div>
+        </body>
         );
 }
 
