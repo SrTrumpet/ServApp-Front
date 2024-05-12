@@ -4,10 +4,12 @@ import Button from '@mui/material/Button';
 import { useAuth } from "../auth/AuthContext";
 import { Mensaje, GET_USERS} from "../graphql/queries/user";
 import { useQuery } from "@apollo/client";
+import Register from "./Register";
+import ForgotPass from "./ForgotPass";
 
 
 
-const Login = () =>{
+function Login() {
 
     //const { login } = useAuth();
 
@@ -28,12 +30,12 @@ const Login = () =>{
     };
     
     return (
-        <body>
-            <h1 className="bg-orange-200 text-center text-5xl font-bold">
-                servicioAltoke
+        <>
+            <h1 className="bg-[#1B4332] text-white text-center text-5xl font-bold">
+                ServApp
             </h1>
-            <div className='flex justify-center items-center h-screen bg-purple-900'>
-                <div className="w=96 p-6 shadow-lg bg-indigo-950 rounded-xl flex flex-col gap-4 justify-center">
+            <div className='bg-[#95D5B2] flex justify-center items-center h-screen'>
+                <div className="bg-[#1B4332] w=96 p-6 shadow-lg rounded-xl flex flex-col gap-4 justify-center">
                     <h1 className="text-3xl block text-white text-center underline font-semibold">Login</h1>
                     <form onSubmit={handleSubmit}>
                     <div className="items-center">
@@ -54,14 +56,16 @@ const Login = () =>{
                         onChange={(e) => setPass(e.target.value)}
                         required/>
                         <p className="text-white">Olvide la contraseña.
-                            <Link className='text-purple-900'to={"./ForgotPass"}> Recuperar</Link> </p>
-                        <button type="submit" className="bg-purple-900 rounded-xl text-2xl 
+                            <Link className='text-[#95D5B2]'to={"./ForgotPass"}> Recuperar</Link> </p>
+                        <button type="submit" className="bg-[#95D5B2] rounded-xl text-2xl 
                         text-white py-2 hover:scale-105 duration-300 w-full">Inciar Sesion</button>
+                        <p className="text-white">No tienes cuenta?
+                            <Link className='text-[#95D5B2]'to={"./Register"}> Registrate</Link> </p>
                     </div>
                     </form>
                 </div>
             </div>
-        </body>
+        </>
         );
 }
 

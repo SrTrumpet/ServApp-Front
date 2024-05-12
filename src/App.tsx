@@ -4,16 +4,16 @@ import ForgotPass from './pages/ForgotPass';
 import Register from './pages/Register';
 
 
-
 const App = () => {
 
     return(
         <Router>
             <Routes>
                 <Route path="/" element={<Login />}/>
-                <Route path="/olvido-de-contrasenna" element={<ForgotPass/>} />
-                <Route path='/registrarse' element = { <Register/>} />
+                <Route path="/ForgotPass" element={<ForgotPass/>} />
+                <Route path='/Register' element = { <Register/>} />
             </Routes>
+    
         </Router>
     );
 
