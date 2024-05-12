@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { useAuth } from "../auth/AuthContext";
-import { Mensaje, GET_USERS} from "../graphql/queries/user";
+//import { useAuth } from "../auth/AuthContext";
+import { GET_USERS} from "../graphql/queries/user";
 import { useQuery } from "@apollo/client";
 
 
@@ -14,7 +14,7 @@ const Login = () =>{
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
-    const {data , loading , error} = useQuery(GET_USERS);
+    const {data } = useQuery(GET_USERS);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
