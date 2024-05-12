@@ -22,18 +22,12 @@ function ForgotPass(){
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     />
-
                     <div>
                         <Button type="submit" variant="outlined">Recuperar Contraseña</Button>
                     </div>
-                
                 </form>
             </div>
-
-            
-            
         </div>
-        
     )
 }
 

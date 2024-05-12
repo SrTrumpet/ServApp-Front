@@ -20,15 +20,9 @@ function Register() {
     return(
         
         <div>
-
-            
             <div>
-
                 <h2>Registremos tu cuenta</h2>
-
                 <form onSubmit={handleSubmit}>
-                    
-
                     <div>
                         <p>Nombre y Apellidos</p>
                         <input
