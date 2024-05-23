@@ -9,11 +9,14 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
+  HttpLink
 } from "@apollo/client";
 
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  link: new HttpLink({
+    uri:"https://tunnel-nevertheless-foreign-oven.trycloudflare.com/graphql"
+  }),
   cache: new InMemoryCache(),
 });
 
