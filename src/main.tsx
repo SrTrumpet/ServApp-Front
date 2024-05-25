@@ -9,14 +9,27 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  HttpLink
+  createHttpLink
 } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
 
+
+const httpLink = createHttpLink({
+  uri: "http://localhost:3000/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('authToken');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  };
+});
 
 const client = new ApolloClient({
-  link: new HttpLink({
-    uri:"https://tunnel-nevertheless-foreign-oven.trycloudflare.com/graphql"
-  }),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
