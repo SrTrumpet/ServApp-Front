@@ -16,12 +16,11 @@ function Register() {
 
     const navigate = useNavigate();
 
-    const [register,{loading,error,data}] = useMutation(REGISTER, {
+    const [register,{loading,error}] = useMutation(REGISTER, {
         onCompleted: () => {
             // muestra el SweetAlert2 antes de redirigir
             Swal.fire({
                 title: 'Éxito!',
-                text: data.register.message,
                 icon: 'success',
                 confirmButtonText: 'Ok'
             }).then((result) => {
