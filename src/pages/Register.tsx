@@ -1,9 +1,10 @@
 
 import React ,{useState} from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../graphql/mutations/user";
 import Loading from "./Loading";
+import Swal from "sweetalert2";
 
 function Register() {
 
@@ -13,7 +14,27 @@ function Register() {
     const [pass, setPass] = useState('');
     const [passVerifi, setPassVerifi] = useState('');
 
-    const [register,{loading,error}] = useMutation(REGISTER);
+    const navigate = useNavigate();
+
+    const [register,{loading,error,data}] = useMutation(REGISTER, {
+        onCompleted: () => {
+            // muestra el SweetAlert2 antes de redirigir
+            Swal.fire({
+                title: 'Éxito!',
+                text: data.register.message,
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            }).then((result) => {
+                // redirige a la página de login
+                if (result.isConfirmed) {
+                    navigate('/');
+                }
+            });
+        },
+        onError: (e) => {
+            console.log("Correo no encontrado", e);
+        }
+    });
 
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,7 +42,7 @@ function Register() {
 
         if (passVerifi == pass){
             try{
-                const result = await register({
+                await register({
                     variables:{
                         nombre: nombre,
                         apellidos: apellidos,
@@ -29,8 +50,6 @@ function Register() {
                         pass:pass,
                     }
                 });
-
-                alert(result.data.register.message);
             }catch(e){
                 console.log(e);
             }
@@ -41,17 +60,14 @@ function Register() {
         console.error("GraphQL Error:", error);
         return <div>Error! {error.message}</div>;
     }
-    if (loading){
-        return <Loading/>
-    }
 
-    
     return(
         <>
         <h1 className="bg-[#1B4332] text-white text-center text-5xl font-bold py-4">
             ServApp
         </h1>
         <div className="bg-[#95D5B2]  min-h-screen flex items-center justify-center">
+        {loading && <Loading />}
                 <div className="bg-[#1B4332] w=96 p-6 shadow-lg rounded-xl flex flex-col gap-4 justify-center">
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4 justify-center">
                         <h1 className="text-white text-2xl">Primera vez por aqui? Registrate!</h1>

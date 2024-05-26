@@ -11,14 +11,14 @@ function ForgotPass(){
     const navigate = useNavigate();
     const [forgotPass, { loading, error }] = useMutation(FORGOT_PASS, {
         onCompleted: () => {
-            // Muestra el SweetAlert2 antes de redirigir
+            // muestra el SweetAlert2 antes de redirigir
             Swal.fire({
                 title: 'Éxito!',
                 text: 'Tu nueva contraseña fue enviada a tu correo',
                 icon: 'success',
                 confirmButtonText: 'Ok'
             }).then((result) => {
-                // Redirige a la página de inicio de sesión después de cerrar la alerta
+                // redirige a la página de login
                 if (result.isConfirmed) {
                     navigate('/');
                 }
@@ -33,13 +33,11 @@ function ForgotPass(){
     const handleSubmit =  async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
             try{
-                const result =await forgotPass({
+                await forgotPass({
                     variables:{
                         email:email,
                     }
                 });
-
-                //alert(result.data.forgotPass.message);
             }catch(e){
                 console.log("Correo no encontrado")
             }
