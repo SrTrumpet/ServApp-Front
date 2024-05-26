@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { INICIO_SESION} from "../graphql/mutations/user/index";
 import { useMutation} from "@apollo/client";
 import Loading from "./Loading";
@@ -9,7 +9,14 @@ const Login = () =>{
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [login,{loading,error}] = useMutation(INICIO_SESION);
+
+    const navigate = useNavigate();
+
+    const [login,{loading,error}] = useMutation(INICIO_SESION,{
+        onCompleted: () => {
+            navigate('/HomeLogin');
+        }
+    });
 
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,7 +28,7 @@ const Login = () =>{
                     password: pass
                 }
             });
-            alert(result.data.login.token);
+            //alert(result.data.login.token); => Debugg para ver el token
             localStorage.setItem('authToken', result.data.login.token);
             //Aca se guarda el token en localStorage
         }catch(e){
