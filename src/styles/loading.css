@@ -2,7 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    position: fixed; /* Posicionamiento fijo para que aparezca sobre el contenido */
+    top: 0; /* Desde el top 0 */
+    left: 0; /* Desde la izquierda 0 */
+    right: 0; /* Hasta la derecha 0 */
+    bottom: 0; /* Hasta el fondo 0 */
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con opacidad del 50% */
+    z-index: 1000; /* Asegura que se muestre sobre otros elementos */
 }
 
 .loading-spinner {

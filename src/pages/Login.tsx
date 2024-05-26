@@ -22,12 +22,11 @@ const Login = () =>{
                 }
             });
             alert(result.data.login.token);
-            localStorage.setItem('authToken', 'result.data.login.token');
-            //<Link to={"./HomeLogin"}></Link>
+            localStorage.setItem('authToken', result.data.login.token);
+            //Aca se guarda el token en localStorage
         }catch(e){
             
         }
-        //login('email', 'password');
     };
     
     if (error){

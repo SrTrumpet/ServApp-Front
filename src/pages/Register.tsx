@@ -48,7 +48,7 @@ function Register() {
     
     return(
         <>
-        <h1 className="bg-[#1B4332] text-white text-center text-5xl font-bold">
+        <h1 className="bg-[#1B4332] text-white text-center text-5xl font-bold py-4">
             ServApp
         </h1>
         <div className="bg-[#95D5B2]  min-h-screen flex items-center justify-center">
@@ -93,7 +93,7 @@ function Register() {
                         </input>
                         
                         <button type="submit" className="bg-[#95D5B2] rounded-xl text-2xl text-white py-2 hover:scale-105 duration-300 w-full">Registrar</button>
-                        <p className="text-white">Ya tienes una cuenta?<Link className=" text-[#95D5B2] underline"to={"/"}>Ingresa aqui!</Link></p>
+                        <p className="text-white">Ya tienes una cuenta?<Link className=" text-[#95D5B2] underline"to={"/"}> Ingresa aqui!</Link></p>
                     </form>
                 </div>
             </div>
