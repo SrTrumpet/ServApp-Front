@@ -1,12 +1,13 @@
 
 import "../styles/banner.css"
 import { Link } from 'react-router-dom';
+import ServiceFind from '../components/ServiceFind';
+import img_user from '../components/Imagenes/img_user.png'
 
 
 function HomeLogin(){
     return (
-        <>
-        <div>
+        <div className="bg-[#95D5B2] h-screen">
             <nav className="bg-[#1B4332] py-4">
                 <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                     <div className="relative flex h-16 items-center justify-between">
@@ -49,7 +50,7 @@ function HomeLogin(){
                             <button type="button" className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span className="absolute -inset-1.5"></span>
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src="" alt=""></img>
+                            <img className="h-8 w-8 rounded-full" src={img_user} alt=""></img>
                             </button>
                         </div>
                         </div>
@@ -57,25 +58,10 @@ function HomeLogin(){
                     </div>
                 </div>
             </nav>
-        </div>
-        <div className="bg-[#95D5B2]  min-h-screen flex items-center justify-center">
-            <div className="bg-[#1B4332] w=96 p-6 shadow-lg rounded-xl flex flex-col gap-4 justify-center">
-                <form  className="flex flex-col gap-6 justify-center">
-                    <h1 className="text-white text-3xl gap-4">Busca un servicio que necesites</h1>
-                    <input className="p-2 rounded-xl border" placeholder="Busca un servicio: Gasfiter, Niñeros, etc"/>
-                    <button type="submit" className="hover:bg-[#95D5B2] rounded-xl text-2xl text-white py-2 duration-300 w-full">Buscar</button>
-                </form>
+            <ServiceFind/>
             </div>
-        </div>
-            <div className="bg-[#95D5B2] flex gap-6">
-                <div className="bg-[#1B4332] card grow text-white" >Publicacion_1</div>
-                <div className="bg-[#1B4332] card grow text-white">Publicacion_2</div>
-                <div className="bg-[#1B4332] card grow text-white">Publicacion_3</div>
-                <div className="bg-[#1B4332] card grow text-white">Publicacion_4</div>
-                <div className="bg-[#1B4332] card grow text-white">Publicacion_5</div>
-                <div className="bg-[#1B4332] card grow text-white">Publicacion_5</div>
-            </div>
-        </>
+            
+        
     );
 
 }
