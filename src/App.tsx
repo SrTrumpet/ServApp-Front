@@ -3,7 +3,7 @@ import Login from './pages/Login';
 import ForgotPass from './pages/ForgotPass';
 import Register from './pages/Register';
 import HomeLogin from './pages/HomeLogin';
-import ServiceFind from './components/ServiceFind';
+import VerServicio from './pages/VerServicio';
 
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
                 <Route path="/ForgotPass" element={<ForgotPass/>} />
                 <Route path='/Register' element = { <Register/>} />
                 <Route path="/HomeLogin" element={<HomeLogin/>} />
+                <Route path="/VerServicio/:id" element={<VerServicio/>}/>
             </Routes>
         </Router>
     );
