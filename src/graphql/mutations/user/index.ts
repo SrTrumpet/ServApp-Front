@@ -23,3 +23,11 @@ export const REGISTER = gql`
         }
     }
 `;
+
+export const AÑADIR_SERVICIO = gql`
+    mutation AñadirUsuario($ocupacion: String!, $categoria: String!, $descripcion: String!, $direccion: String!) {
+        añadir(ocupacion: $ocupacion, categoria: $categoria, descripcion: $descripcion, direccion: $direccion) {
+            message
+        }
+    }
+`;
