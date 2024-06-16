@@ -18,6 +18,8 @@ const httpLink = createHttpLink({
   uri: "http://localhost:3000/graphql",
 });
 
+
+//Para el header se puede usar un jwcookie envez de guardarlo en localStorage, aunque no esta mal asi
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('authToken');
   return {
@@ -35,11 +37,10 @@ const client = new ApolloClient({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
+  
   <React.StrictMode>
     <ApolloProvider client={client}>
-    
-          <App/>
-    
+      <App/>
     </ApolloProvider>
   </React.StrictMode>,
 )

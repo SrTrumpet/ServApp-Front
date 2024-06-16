@@ -7,6 +7,9 @@ import HomeLogin from './pages/HomeLogin';
 
 const App = () => {
 
+    //aca se agrega un useEffect para definir el cambio por ejemlo si el token esta activo, que el usuario entre directamente a home
+    //o que se redireccione a login si caduco el token o si no existe
+
     return(
         <Router>
             <Routes>
