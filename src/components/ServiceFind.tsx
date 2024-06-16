@@ -3,34 +3,41 @@ import './ServiceFind.css';
 import { Link, useNavigate} from 'react-router-dom';
 
 const UserFind: React.FC = () => {
+
+  type coordinates = [Number, Number];
+
   const users = [
     {
       id: 1,
       name: 'Syket',
       age: 20,
       designation: 'Software Engineer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
       id: 2,
       name: 'Sakib',
       age: 25,
       designation: 'Programmer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
       id: 3,
       name: 'Jamy',
       age: 30,
       designation: 'Designer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
       id: 4,
       name: 'Hanif',
       age: 20,
       designation: 'UX Writer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
   ];
   const [userList, setUserList] = React.useState<
-    {id: number, name: string; age: number; designation: string}[] | undefined
+    {id: number, name: string; age: number; designation: string;}[] | undefined
   >(users);
   const [text, setText] = React.useState<string>('');
 

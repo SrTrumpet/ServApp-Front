@@ -4,7 +4,9 @@ import ForgotPass from './pages/ForgotPass';
 import Register from './pages/Register';
 import HomeLogin from './pages/HomeLogin';
 import VerServicio from './pages/VerServicio';
+import mapboxgl from 'mapbox-gl';
 
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RpYW4xNyIsImEiOiJjbHhnbHJhbWExMzV6Mm1wdzczdDUxMHc2In0.wiU7M9_rXHDazJsl54Mpmg';
 
 const App = () => {
 

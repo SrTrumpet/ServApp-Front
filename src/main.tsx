@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 //import { AuthProvider } from './auth/AuthContext';
 import App from './App';
 import './styles/index.css';
+import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RpYW4xNyIsImEiOiJjbHhnbHZlcncxMWNrMmlwb2NsYzN0Ymk0In0.MQUJWEoHYAmUxmQVOw7mJg';
 
 //<Route path="/" element={<Home />}/>
 import {
