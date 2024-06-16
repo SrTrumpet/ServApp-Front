@@ -30,9 +30,9 @@ function HomeLogin(){
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 <Link to={"./Inicio"} className="text-white hover:bg-[#95D5B2] rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</Link>
-                                <Link to={"./Categorias"}className="text-white hover:bg-[#95D5B2] hover:text-white rounded-md px-3 py-2 text-sm font-medium">Categorias</Link>
+                                <Link to={"./Mis Servicios"} className="text-white hover:bg-[#95D5B2] hover:text-white rounded-md px-3 py-2 text-sm font-medium">Mis Servicios</Link>
                                 <Link to={"./Contacto"} className="text-white hover:bg-[#95D5B2] hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</Link>
-                                <Link to={"./Ayuda"} className="text-white hover:bg-[#95D5B2] hover:text-white rounded-md px-3 py-2 text-sm font-medium">Ayuda</Link>
+                                
                             </div>
                         </div>
                     </div>

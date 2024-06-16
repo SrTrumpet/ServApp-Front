@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import mapboxgl from 'mapbox-gl';
 import React, { useRef, useEffect, useContext } from 'react';
+import { PlacesProvider } from '../components/Map/PlacesProvider';
 
 
 const VerServicio: React.FC = () => {
@@ -53,17 +54,20 @@ const VerServicio: React.FC = () => {
         const map = new mapboxgl.Map({
           container: mapContainerRef.current!, // Referencia al contenedor del mapa
           style: 'mapbox://styles/mapbox/streets-v12', // URL del estilo
-          center: [-74.5, 40], // Posición inicial [lng, lat]
+          center: [-71.35192634200634, -29.964393667098573], // Posición inicial [lng, lat]
           zoom: 12, // Nivel de zoom inicial
         });
         return () => map.remove();
       }
-    }, [user.direction]); // Asegúrate de incluir user.direction en el array de dependencias
+    }, [user.direction]);
   return (
     <div className="flex h-screen bg-[#95D5B2] items-center">
       <div className="w-1/2 bg-[#95D5B2] flex items-center justify-center">
         <div className="bg-[#1B4332] p-7 shadow-lg rounded-xl flex flex-col gap-4">
           <form className="flex flex-col gap-7 text-white">
+            <PlacesProvider>
+              <h1>Holaaaaaaa</h1>
+            </PlacesProvider>
             <h3>Nombre: {user.name}</h3>
             <p>ID: {user.id}</p>
             <p>Edad: {user.age}</p>
