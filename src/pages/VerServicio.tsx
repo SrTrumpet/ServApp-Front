@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import mapboxgl from 'mapbox-gl';
 import React, { useRef, useEffect, useContext } from 'react';
-import { PlacesProvider } from '../components/Map/PlacesProvider';
+import { PlacesProvider } from '../components/Map/Places/PlacesProvider';
 
 
 const VerServicio: React.FC = () => {

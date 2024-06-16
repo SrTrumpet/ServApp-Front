@@ -18,6 +18,14 @@ const httpLink = createHttpLink({
   uri: "https://via-deposit-matrix-oo.trycloudflare.com/graphql",
 });
 
+
+if ( !navigator.geolocation ){
+  alert ('Tu navegador no tiene opcion de Geolocalización')
+  throw new Error('Tu navegador no tiene opcion de Geolocalización')
+}
+
+
+
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('authToken');
   return {

@@ -3,6 +3,7 @@ import "../styles/banner.css"
 import { Link } from 'react-router-dom';
 import ServiceFind from '../components/ServiceFind';
 import img_user from '../components/Imagenes/img_user.png'
+import { MapView } from "../components/Map/MapView";
 
 
 function HomeLogin(){
@@ -57,6 +58,7 @@ function HomeLogin(){
                     </div>
                 </div>
             </nav>
+            <MapView/>
             <ServiceFind/>
             </div>
             
