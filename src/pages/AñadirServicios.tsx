@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
-import { AÑADIR_SERVICIO} from "../graphql/mutations/user";
+import { AÑADIR_SERVICIO} from "../graphql/mutations/servicio/index";
 import Swal from "sweetalert2";
 
 function AñadirServicio() {
