@@ -15,7 +15,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3000/graphql",
+  uri: "https://via-deposit-matrix-oo.trycloudflare.com/graphql",
 });
 
 

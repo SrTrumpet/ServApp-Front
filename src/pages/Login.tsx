@@ -3,44 +3,59 @@ import { Link, useNavigate} from 'react-router-dom';
 import { INICIO_SESION} from "../graphql/mutations/user/index";
 import { useMutation} from "@apollo/client";
 import Loading from "./Loading";
-import HomeLogin from "./HomeLogin";
+import Swal from "sweetalert2";
+//import HomeLogin from "./HomeLogin";
 
 
 const Login = () =>{
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [id, setId] = useState('');
+    //const [id, setId] = useState('');
 
     const navigate = useNavigate();
 
-    const [login,{loading,error}] = useMutation(INICIO_SESION,{
-        onCompleted: () => {
-            navigate('/HomeLogin');
+    const [login, { loading}] = useMutation(INICIO_SESION, {
+        onCompleted: (data) => {
+            if (data.login && data.login.token) {
+                localStorage.setItem('authToken', data.login.token);
+                Swal.fire({
+                    title: 'Éxito!',
+                    text: 'Inicio de Sesion correcto',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    // redirige a la página de login
+                    if (result.isConfirmed) {
+                        navigate('/HomeLogin');
+                    }
+                });
+            }
+        },
+        onError: (error) => {
+            Swal.fire({
+                title: 'Error',
+                text: error.message,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
         }
     });
-
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try{
-            const result = await login({
+            await login({
                 variables: {
                     email: email,
                     password: pass
                 }
             });
-            //alert(result.data.login.token); => Debugg para ver el token
-            localStorage.setItem('authToken', result.data.login.token);
-            //Aca se guarda el token en localStorage
         }catch(e){
-            
+            console.log("Correo bla bla");
         }
     };
     
-    if (error){
-        return <div>`Error! ${error.message}`</div>;
-    }
 
     return (
         <>
@@ -75,8 +90,7 @@ const Login = () =>{
                             <p className="text-white">Olvide la contraseña.
                                 <Link className='text-[#95D5B2]'to={"./ForgotPass"}> Recuperar</Link> </p>
 
-                            <button type="submit" className="bg-green-500 rounded-xl text-2xl text-white py-2 hover:scale-105 duration-300 w-full"
-                            onClick={() => {window.location.href = '/HomeLogin';}}>Iniciar Sesión</button>
+                                <button type="submit" className="bg-green-500 rounded-xl text-2xl text-white py-2 hover:scale-105 duration-300 w-full">Iniciar Sesión</button>
 
                             <p className="text-white">No tienes cuenta?
                                 <Link className='text-[#95D5B2]'to={"./Register"}> Registrate</Link> </p>
