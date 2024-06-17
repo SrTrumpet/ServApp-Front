@@ -22,3 +22,18 @@ export const GET_ALL_SERVICES = gql`
         }
 }
 `
+
+export const BUSCAR_SERVICIO_NOMBRE = gql`
+    query findAllServicesByName($name: String!){
+        findAllServicesByName(name:$name){
+            id
+            nombreUsuario
+            ocupacion
+            categoria
+            descripcion
+            direccion
+            calificacion
+            click
+        }
+    }
+`
