@@ -4,7 +4,6 @@ import { INICIO_SESION} from "../graphql/mutations/user/index";
 import { useMutation} from "@apollo/client";
 import Loading from "./Loading";
 import Swal from "sweetalert2";
-//import HomeLogin from "./HomeLogin";
 
 
 const Login = () =>{
@@ -51,6 +50,8 @@ const Login = () =>{
                     password: pass
                 }
             });
+            //alert(result.data.login.token); => Debugg para ver el token
+            //Aca se guarda el token en localStorage
         }catch(e){
             console.log("Correo bla bla");
         }

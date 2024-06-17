@@ -3,34 +3,41 @@ import './ServiceFind.css';
 import { Link, useNavigate} from 'react-router-dom';
 
 const UserFind: React.FC = () => {
+
+  type coordinates = [Number, Number];
+
   const users = [
     {
-      id: 1,
+      id_servicio: 1,
       name: 'Syket',
       age: 20,
       designation: 'Software Engineer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
-      id: 2,
+      id_servicio: 2,
       name: 'Sakib',
       age: 25,
       designation: 'Programmer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
-      id: 3,
+      id_servicio: 3,
       name: 'Jamy',
       age: 30,
       designation: 'Designer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
     {
-      id: 4,
+      id_servicio: 4,
       name: 'Hanif',
       age: 20,
       designation: 'UX Writer',
+      direction: [-29.964266320209205, -71.34929533552395],
     },
   ];
   const [userList, setUserList] = React.useState<
-    {id: number, name: string; age: number; designation: string}[] | undefined
+    {id_servicio: number, name: string; age: number; designation: string;}[] | undefined
   >(users);
   const [text, setText] = React.useState<string>('');
 
@@ -73,11 +80,10 @@ const UserFind: React.FC = () => {
             return (
               <div className="body__item">
                 <h3>Name: {user?.name}</h3> 
-                <p>Id: {user?.id}</p>
+                <p>Id: {user?.id_servicio}</p>
                 <p>Age: {user?.age}</p>
                 <p>Designation: {user?.designation}</p>
-
-                <Link to={'/VerServicio/'+user?.id}>
+                <Link to={'/VerServicio/'+user?.id_servicio}>
                     <button type="submit" className="bg-[#95D5B2] rounded-md text-[#1B4332] py-1 hover:scale-105
                         duration-300 
                         w-full">Ver {user.name}</button>
