@@ -12,7 +12,6 @@ export const MapView = () => {
     return( <Loading/>)
   }
 
- 
   return (
     <div className="text-white">
       { userLocation?.join(',') }

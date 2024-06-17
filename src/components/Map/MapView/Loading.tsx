@@ -1,10 +1,4 @@
-   
-   
-   
-   
-   
-   
-   
+
 export const Loading = () => {
     return(
         <div className="loading-map flex justify-content-center align-items-center">

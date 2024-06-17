@@ -2,10 +2,23 @@ import { useParams } from 'react-router-dom';
 import mapboxgl from 'mapbox-gl';
 import React, { useRef, useEffect} from 'react';
 import { PlacesProvider } from '../components/Map/Places/PlacesProvider';
+import { getCoordinatesFromAddress } from '../components/MapBoxConverter';
+
 
 
 const VerServicio: React.FC = () => {
     const { id } = useParams<{ id: string }>();
+
+    const logCoordinates = async (address: string) => {
+      try {
+        const coordinates = await getCoordinatesFromAddress(address);
+        console.log('Direccion coordenadas', coordinates);
+      } catch (error) {
+        console.error('Error obteniendo coordenadas:', error);
+      }
+    }
+    
+    logCoordinates('Av El Sauce 51, Coquimbo, Chile');
 
     const users = [
       {
@@ -13,7 +26,7 @@ const VerServicio: React.FC = () => {
         name: 'Syket',
         age: 20,
         designation: 'Software Engineer',
-        direction: [-29.964266320209205, -71.34929533552395],
+        direction: 'Piloto pardo 17, coquimbo',
       },
       {
         id: 2,

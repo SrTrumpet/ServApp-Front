@@ -7,3 +7,18 @@ export const AÑADIR_SERVICIO = gql`
         }
     }
 `;
+
+export const GET_ALL_SERVICES = gql`
+    mutation {
+        getAllService{
+            id
+            nombreUsuario
+            ocupacion
+            categoria
+            descripcion
+            direccion
+            calificacion
+            click
+        }
+}
+`
