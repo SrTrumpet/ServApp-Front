@@ -7,10 +7,9 @@ import VerServicio from './pages/VerServicio';
 import mapboxgl from 'mapbox-gl';
 import AñadirServicios from './pages/AñadirServicios';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RpYW4xNyIsImEiOiJjbHhnbHJhbWExMzV6Mm1wdzczdDUxMHc2In0.wiU7M9_rXHDazJsl54Mpmg';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RpYW4xNyIsImEiOiJjbHhpOGt6MjYxbTl4MnFvdjFnOTlmNHVyIn0.kCns696dW_1ZZaK8qXtAFQ';
 
 const App = () => {
-
     return(
         <Router>
             <Routes>
@@ -23,7 +22,6 @@ const App = () => {
             </Routes>
         </Router>
     );
-
 }
 
 export default App;

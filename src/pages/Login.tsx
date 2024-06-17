@@ -4,7 +4,6 @@ import { INICIO_SESION} from "../graphql/mutations/user/index";
 import { useMutation} from "@apollo/client";
 import Loading from "./Loading";
 import Swal from "sweetalert2";
-//import HomeLogin from "./HomeLogin";
 
 
 const Login = () =>{

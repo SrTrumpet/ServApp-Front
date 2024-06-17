@@ -1,8 +1,7 @@
-import React ,{useState} from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 import { AÑADIR_SERVICIO} from "../graphql/mutations/user";
-import Loading from "./Loading";
 import Swal from "sweetalert2";
 
 function AñadirServicio() {
@@ -71,7 +70,6 @@ function AñadirServicio() {
                         onChange={(e) => setDireccion(e.target.value)}
                         required>
                         </input>
-                        
                         <button type="submit" className="bg-[#95D5B2] rounded-xl text-2xl text-white py-2 hover:scale-105 duration-300 w-full">Añadir Servicio</button>
                     </form>
                 </div>
@@ -79,6 +77,5 @@ function AñadirServicio() {
     </>
     );
 }
-
 
 export default AñadirServicio;

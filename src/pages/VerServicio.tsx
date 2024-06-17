@@ -1,13 +1,12 @@
 import { useParams } from 'react-router-dom';
 import mapboxgl from 'mapbox-gl';
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect} from 'react';
 import { PlacesProvider } from '../components/Map/Places/PlacesProvider';
 
 
 const VerServicio: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-  
-    const coordinates = [Number, Number]
+
     const users = [
       {
         id: 1,
