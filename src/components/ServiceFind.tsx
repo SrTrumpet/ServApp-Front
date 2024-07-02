@@ -1,10 +1,8 @@
 import React from 'react';
 import './ServiceFind.css';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const UserFind: React.FC = () => {
-
-  type coordinates = [Number, Number];
 
   const users = [
     {
@@ -13,6 +11,7 @@ const UserFind: React.FC = () => {
       age: 20,
       designation: 'Software Engineer',
       direction: [-29.964266320209205, -71.34929533552395],
+      calificacion: 5.0,
     },
     {
       id_servicio: 2,
@@ -20,6 +19,7 @@ const UserFind: React.FC = () => {
       age: 25,
       designation: 'Programmer',
       direction: [-29.964266320209205, -71.34929533552395],
+      calificacion: 4.7,
     },
     {
       id_servicio: 3,
@@ -27,6 +27,7 @@ const UserFind: React.FC = () => {
       age: 30,
       designation: 'Designer',
       direction: [-29.964266320209205, -71.34929533552395],
+      calificacion: 4.4,
     },
     {
       id_servicio: 4,
@@ -34,10 +35,11 @@ const UserFind: React.FC = () => {
       age: 20,
       designation: 'UX Writer',
       direction: [-29.964266320209205, -71.34929533552395],
+      calificacion: 3.6,
     },
   ];
   const [userList, setUserList] = React.useState<
-    {id_servicio: number, name: string; age: number; designation: string;}[] | undefined
+    {id_servicio: number, name: string; age: number;calificacion: number; designation: string; }[] | undefined
   >(users);
   const [text, setText] = React.useState<string>('');
 
@@ -80,9 +82,9 @@ const UserFind: React.FC = () => {
             return (
               <div className="body__item">
                 <h3>Name: {user?.name}</h3> 
-                <p>Id: {user?.id_servicio}</p>
                 <p>Age: {user?.age}</p>
                 <p>Designation: {user?.designation}</p>
+                <p>Calificación: {user?.calificacion}/5.0</p>
                 <Link to={'/VerServicio/'+user?.id_servicio}>
                     <button type="submit" className="bg-[#95D5B2] rounded-md text-[#1B4332] py-1 hover:scale-105
                         duration-300 
