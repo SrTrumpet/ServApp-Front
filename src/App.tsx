@@ -6,6 +6,7 @@ import HomeLogin from './pages/HomeLogin';
 import VerServicio from './pages/VerServicio';
 import mapboxgl from 'mapbox-gl';
 import AñadirServicios from './pages/AñadirServicios';
+import Chat from './pages/Chat';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jpc3RpYW4xNyIsImEiOiJjbHhpOGt6MjYxbTl4MnFvdjFnOTlmNHVyIn0.kCns696dW_1ZZaK8qXtAFQ';
 
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/HomeLogin" element={<HomeLogin/>} />
                 <Route path="/VerServicio/:id" element={<VerServicio/>}/>
                 <Route path="/AñadirServicios" element={<AñadirServicios/>}/>
+                <Route path="/chat" element={<Chat userId="23"/>}/>
             </Routes>
         </Router>
     );
