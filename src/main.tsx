@@ -1,13 +1,51 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+//import { AuthProvider } from './auth/AuthContext';
+import App from './App';
+import './styles/index.css';
+
+//<Route path="/" element={<Home />}/>
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink
+} from "@apollo/client";
+import { setContext } from '@apollo/client/link/context';
+
+
+const httpLink = createHttpLink({
+  uri: "https://via-deposit-matrix-oo.trycloudflare.com/graphql",
+});
+
+
+if ( !navigator.geolocation ){
+  alert ('Tu navegador no tiene opcion de Geolocalización')
+  throw new Error('Tu navegador no tiene opcion de Geolocalización')
+}
+
+
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('authToken');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ApolloProvider client={client}>
+          <App/>
+    </ApolloProvider>
   </React.StrictMode>,
 )
