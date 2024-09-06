@@ -6,7 +6,7 @@ import { GET_POPULAR_SERVICES } from '../graphql/mutations/servicio';// Asegúra
 import Loading from '../pages/Loading';
 
 const UserFind: React.FC = () => {
-  const { loading, error, data } = useQuery(GET_POPULAR_SERVICES);
+  const { loading, data } = useQuery(GET_POPULAR_SERVICES);
 
   // Agrega un usuario de ejemplo a la lista recibida de la consulta
   const exampleUser = {

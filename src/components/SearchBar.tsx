@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useContext, useRef } from 'react';
+import { ChangeEvent, useContext, useRef } from 'react';
 import { PlacesContext } from './context';
 
 export const SearchBar = () => {
