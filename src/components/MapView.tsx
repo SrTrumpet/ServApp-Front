@@ -4,6 +4,7 @@ import { Loading } from "./";
 import { Map, Marker, LngLatLike } from "mapbox-gl";
 import axios from "axios";
 
+
 interface MapViewProps {
   direction?: [number, number];
 }

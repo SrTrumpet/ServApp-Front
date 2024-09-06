@@ -6,6 +6,7 @@ import HomeLogin from './pages/HomeLogin';
 import VerServicio from './pages/VerServicio';
 import mapboxgl from 'mapbox-gl';
 import AñadirServicios from './pages/AñadirServicios';
+import Chat from './pages/Chat';
 import MisServicios from './pages/MisServicios';
 import EditarServicio from './pages/EditarServicio';
 import ServiceStats from './pages/ServiceStats';
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/HomeLogin" element={<HomeLogin/>} />
                 <Route path="/VerServicio/:id" element={<VerServicio/>}/>
                 <Route path="/AñadirServicios/" element={<AñadirServicios/>}/>
+                <Route path="/chat/:userId/:username" element={<Chat/>} />
                 <Route path="/MisServicios/" element={<MisServicios/>}/>
                 <Route path="/EditarServicio/:id_servicio" element={<EditarServicio/>}/>
                 <Route path="/ServiceStats/:id_servicio" element={<ServiceStats/>}/>
