@@ -118,9 +118,9 @@ const ServiceStats: React.FC = () => {
     },
   };
 
-  const [name, setName] = React.useState(user.name);
-  const [age, setAge] = React.useState(user.age);
-  const [designation, setDesignation] = React.useState(user.designation);
+  const [name] = React.useState(user.name);
+  const [age] = React.useState(user.age);
+  const [designation] = React.useState(user.designation);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

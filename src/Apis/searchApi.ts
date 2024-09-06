@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { accessToken } from 'mapbox-gl';
 
 const searchApi = axios.create({
     baseURL: 'https://api.mapbox.com/geocoding/v5/mapbox.places',

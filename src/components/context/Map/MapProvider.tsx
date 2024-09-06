@@ -1,11 +1,11 @@
-import React, { useReducer } from 'react' ;
-import mapboxgl, { LngLat, LngLatLike, Map, Marker, Popup } from 'mapbox-gl';
+import  { useReducer } from 'react' ;
+import  {  Map, Marker } from 'mapbox-gl';
 
 import { MapContext } from './MapContext';
 import { mapReducer } from './mapReducer';
-import Lng from '../../../pages/VerServicio';
-import Lat from '../../../pages/VerServicio';
-import servDirection from '../../../pages/VerServicio';
+//import Lng from '../../../pages/VerServicio';
+//import Lat from '../../../pages/VerServicio';
+//import servDirection from '../../../pages/VerServicio';
 
 export interface MapState {
     isMapReady: boolean;

@@ -1,7 +1,7 @@
 import { useContext, useLayoutEffect, useRef } from "react";
 import { PlacesContext, MapContext } from "./context";
 import { Loading } from "./";
-import { Map, Marker, LngLatLike } from "mapbox-gl";
+import { Map} from "mapbox-gl";
 import axios from "axios";
 
 
@@ -25,8 +25,6 @@ export const MapView: React.FC<MapViewProps> = ({ direction }) => {
 
       setMap(map);
 
-      const startMarker = new Marker().setLngLat(userLocation as LngLatLike).addTo(map);
-      const endMarker = new Marker().setLngLat(direction as LngLatLike).addTo(map);
 
       // Obtener y trazar la ruta
       const getRoute = async () => {
