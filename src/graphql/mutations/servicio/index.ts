@@ -37,3 +37,24 @@ export const BUSCAR_SERVICIO_NOMBRE = gql`
         }
     }
 `
+
+export const GET_MY_SERVICE = gql`
+    query{
+        getMyServices{
+            id
+            ocupacion
+        }
+    }
+`
+
+export const GET_POPULAR_SERVICES = gql`
+    query{
+    getPupularService{
+        id
+        nombreUsuario
+        ocupacion
+        calificacion
+        direccion
+    }
+}
+`

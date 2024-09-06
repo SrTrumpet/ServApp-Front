@@ -15,7 +15,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 const httpLink = createHttpLink({
-  uri: "http://192.168.201.215:3000/graphql",
+  uri: "http://192.168.51.26:3000/graphql",
 });
 
 

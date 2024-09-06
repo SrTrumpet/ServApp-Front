@@ -1,73 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import { useParams } from 'react-router-dom';
 
-const socket = io('http://localhost:3000');
+    interface Message {
+    message: string;
+    sender: string;
+    }
 
-interface ChatProps {
-    username?: string;
-    userId: string;  // Asegúrate de tener un identificador para cada usuario
-}
+    interface User {
+    id: string;
+    username: string;
+    }
 
+const Chat = () => {
+  // Obtenemos los parámetros como un Record y usamos aserciones de tipo para asegurarnos que cumplen con los tipos deseados
+    const params = useParams();
+    const username = params.username as string;
+    const userId = params.userId as string;
 
-const Chat: React.FC<ChatProps> = ({ username, userId }) => {
-    const [message, setMessage] = useState<string>('');
-    const [targetId, setTargetId] = useState<string>('');
-    const [messages, setMessages] = useState<{ message: string, sender: string }[]>([]);
+    const [message, setMessage] = useState('');
+    const [targetId, setTargetId] = useState('');
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
+
+    const socket = io(`http://192.168.51.26:3000`, {
+        query: { userId }
+    });
 
     useEffect(() => {
-        socket.on('message', (msg: { message: string, sender: string }) => {
-            setMessages((prevMessages) => [...prevMessages, msg]);
+        socket.on('message', (msg) => {
+            setMessages(prevMessages => [...prevMessages, msg]);
+        });
+
+        // Escuchar la actualización de usuarios en línea
+        socket.on('updateUsers', (onlineUsers) => {
+            setUsers(onlineUsers);
         });
 
         return () => {
             socket.off('message');
+            socket.off('updateUsers'); // Asegurarse de apagar este evento también
         };
-    }, []);
+    }, [socket]);
 
-    const sendMessage = (): void => {
-        if (message.trim() && targetId) {
-            socket.emit('directMessage', { targetId, content: { message, sender: username || 'Anonymous' }});
-            setMessage('');
-        }
-    };
+
+const sendMessage = () => {
+    if (message.trim() && targetId) {
+        const content = { message, sender: username };
+        console.log("Enviando mensaje:", { targetId, content }); 
+        socket.emit('directMessage', { targetId, content });
+        setMessage('');
+    }
+};
 
     return (
-        <div className="p-4 h-screen flex flex-col justify-between">
-            <ul className="overflow-auto h-5/6">
-                {messages.map((msg, index) => (
-                    <li key={index} className={`p-2 rounded-lg m-2 ${
-                        msg.sender === username ? 'bg-blue-500 text-white self-end' : 'bg-gray-300'
-                    }`}>
-                        <strong>{msg.sender}:</strong> {msg.message}
-                    </li>
-                ))}
-            </ul>
-            <div className="flex">
-                <input
-                    type="text"
-                    placeholder="Type your message here..."
-                    className="flex-1 p-2 border-2 border-gray-300 rounded-l-lg"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' ? sendMessage() : null}
-                />
-                <select
-                    className="border-2 border-gray-300 rounded-lg"
-                    value={targetId}
-                    onChange={(e) => setTargetId(e.target.value)}
-                >
-                    {/* Suponiendo que tienes una lista de usuarios, renderízalos aquí */}
-                    {/* <option value={user.id}>{user.name}</option> */}
-                </select>
-                <button 
-                    className="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600"
-                    onClick={sendMessage}
-                >
-                    Send
-                </button>
-            </div>
+        <div className="chat-container">
+        <ul>
+            {messages.map((msg, index) => (
+            <li key={index} className={msg.sender === username ? 'my-message' : 'other-message'}>
+                <strong>{msg.sender}:</strong> {msg.message}
+            </li>
+            ))}
+        </ul>
+        <div>
+            <input
+            type="text"
+            placeholder="Type your message here..."
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+            onKeyPress={e => e.key === 'Enter' && sendMessage()}
+            />
+            <select
+            value={targetId}
+            onChange={e => setTargetId(e.target.value)}
+            >
+            <option value="">Select user</option>
+            {users.map(user => (
+                <option key={user.id} value={user.id}>{user.username}</option>
+            ))}
+            </select>
+            <button onClick={sendMessage}>Send</button>
+        </div>
         </div>
     );
-};
+    };
 
 export default Chat;
